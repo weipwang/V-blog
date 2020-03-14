@@ -1,0 +1,12 @@
+{
+   "src_dir"            :   "./",
+   "access_key"         :   "TNXUyWiC2SLIVND61tVxd7s4Lxwn1geNvsTHmD6s",
+   "secret_key"         :   "fb2K5Sf1kRXXKnDrPg86X_Bhre5RiDMh3bfd-5th",
+   "bucket"             :   "youtubeblog",
+   "zone"               :   "nb",
+   "ignore_dir"         :   false,
+   "overwrite"          :   true,
+   "check_exists"       :   false,
+   "rescan_local"       :   true,
+   "check_hash"         :   true
+}
