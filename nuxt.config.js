@@ -67,9 +67,7 @@ export default {
       .catch(err => {
         console.log(err)
       })
-    },
-    // 修改打包默认文件夹
-    dir: 'docs'
+    }
   },
   /*
   ** Build configuration
