@@ -50,6 +50,7 @@ export default {
   ],
 
   generate: {
+    // generate时自动生成动态路由
     routes: function () {
       return axios.get(
         "https://api.storyblok.com/v1/cdn/stories?version=published&token=93023vY9AqObFFZdQJc5sQtt&starts_with=blog&cv=" + Math.floor(Date.now() / 1e3)
@@ -66,7 +67,9 @@ export default {
       .catch(err => {
         console.log(err)
       })
-    }
+    },
+    // 修改打包默认文件夹
+    dir: 'docs'
   },
   /*
   ** Build configuration
