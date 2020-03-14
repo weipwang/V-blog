@@ -42,30 +42,6 @@ export default {
         context.error({ statusCode: res.response.status, message: res.response.data })
       }
     })
-  },
-  data () {
-    // return{
-    //   posts: [
-    //     {
-    //       title: "a new beginning",
-    //       previewText: "this will be awesome, donot miss it",
-    //       thumbnailUrl: "http://res.iemit.cn/Fhwoy6KcnIUlsUO3G94W7_h3aWU1",
-    //       id: "a-new-beginning"
-    //     },
-    //     {
-    //       title: "a second beginning",
-    //       previewText: "this will be awesome, donot miss it",
-    //       thumbnailUrl: "http://res.iemit.cn/Fhwoy6KcnIUlsUO3G94W7_h3aWU1",
-    //       id: "a-second-beginning"
-    //     },
-    //     {
-    //       title: "a third beginning",
-    //       previewText: "this will be awesome, donot miss it",
-    //       thumbnailUrl: "http://res.iemit.cn/Fhwoy6KcnIUlsUO3G94W7_h3aWU1",
-    //       id: "a-third-beginning"
-    //     },
-    //   ]
-    // }
   }
 }
 </script>

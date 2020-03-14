@@ -1,18 +1,22 @@
-
+const axios = require('axios');
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: "v-blog+",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content:  "an awesome blog about v-blog build with nuxt and storyblok"}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap&subset=chinese-simplified'
+      }
     ]
   },
   /*
@@ -38,7 +42,32 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    ['storyblok-nuxt', {
+      accessToken: process.env.NODE_ENV == 'production' ? '93023vY9AqObFFZdQJc5sQtt' :
+      'n3tEG3ZlHyodsEQqrVDVrwtt',
+      cacheProvider: 'memory'
+    }],
   ],
+
+  generate: {
+    routes: function () {
+      return axios.get(
+        "https://api.storyblok.com/v1/cdn/stories?version=published&token=93023vY9AqObFFZdQJc5sQtt&starts_with=blog&cv=" + Math.floor(Date.now() / 1e3)
+      )
+      .then(res => {
+        const blogPosts = res.data.stories.map(bp => bp.full_slug)
+        return [
+          '/',
+          'blog',
+          'about',
+          ...blogPosts
+        ]
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    }
+  },
   /*
   ** Build configuration
   */
