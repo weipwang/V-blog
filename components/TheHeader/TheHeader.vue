@@ -2,8 +2,8 @@
   <header class="main-header">
     <nav class="main-nav">
       <ul class="nav-links">
-        <nuxt-link to='/' tag='li' class="nav-link"><a>All Posts</a></nuxt-link>
-        <nuxt-link to='/about' tag='li' class="nav-link"><a>about</a></nuxt-link>
+        <nuxt-link to='/' tag='li' class="nav-link"><a>所有博客</a></nuxt-link>
+        <nuxt-link to='/about' tag='li' class="nav-link"><a>关于我</a></nuxt-link>
       </ul>
     </nav>
   </header>
