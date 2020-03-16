@@ -1,6 +1,6 @@
 <template>
   <nuxt-link
-      :to= "'/blog/' + id"
+      :to= "'/blogs/' + id"
       class="post-preview"
       >
       <article  >

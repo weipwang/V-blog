@@ -1,5 +1,4 @@
 ﻿---
-layout: post
 title: markdown语法
 descript: markdown一些相关语法
 tags: [涨知识,markdown,静态博客]

@@ -11,10 +11,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "ant-design-vue": "^1.4.12",
+    "github-markdown-css": "^4.0.0",
     "nuxt": "^2.0.0",
     "storyblok-nuxt": "^1.2.0"
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.13.0",
     "front-matter": "^3.1.0",
     "highlight.js": "^9.18.1",
     "marked": "^0.8.0"

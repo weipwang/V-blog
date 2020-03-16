@@ -23,13 +23,16 @@ export default {
   /*
   ** Global CSS
   */
+//  添加markdown编译html后需要的样式文件
   css: [
-    'highlight.js/styles/gml.css'
+    'github-markdown-css/github-markdown.css',
+    'highlight.js/styles/github.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    {src: '~/plugins/antd-ui.js', ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules
@@ -40,11 +43,11 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    ['storyblok-nuxt', {
-      accessToken: process.env.NODE_ENV == 'production' ? '93023vY9AqObFFZdQJc5sQtt' :
-      'n3tEG3ZlHyodsEQqrVDVrwtt',
-      cacheProvider: 'memory'
-    }],
+    // ['storyblok-nuxt', {
+    //   accessToken: process.env.NODE_ENV == 'production' ? '93023vY9AqObFFZdQJc5sQtt' :
+    //   'n3tEG3ZlHyodsEQqrVDVrwtt',
+    //   cacheProvider: 'memory'
+    // }],
   ],
 
   generate: {
@@ -69,8 +72,13 @@ export default {
   },
 
   serverMiddleware: [
-    '~/api/index'
+    {path: '/api', handler: '~api/index'}
   ],
+
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  },
   /*
   ** Build configuration
   */
@@ -79,6 +87,13 @@ export default {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
-    }
+    },
+    babel: {"plugins": [
+      ["import", {
+        "libraryName": "ant-design-vue",
+        "libraryDirectory": "es",
+        "style": "css"
+      }]
+    ]}
   }
 }

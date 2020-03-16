@@ -1,5 +1,4 @@
 ﻿---
-layout: post
 title: 七牛云存储
 descript: qshell上传静态文件部署
 tags: [涨知识,七牛,静态博客]
