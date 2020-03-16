@@ -19,21 +19,18 @@ export default {
     PostPreview
   },
   asyncData (context) {
-    return context.app.$storyapi.get('cdn/stories', {
-      version: context.isDev ? 'draft' : 'published',
-      starts_with: 'blog/'
-    }).then((res) => {
-      return {
-        posts: res.data.stories.map(bp => {
+    return axios.get('http://127.0.0.1:4000?slug='+content.params.slug)
+      .then(res => {
+        console.log('index++++',res)
+        let blog = res.data
+        let space = []
         return {
-          id: bp.slug,
-          title: bp.content.title,
-          previewText: bp.content.summary,
-          thumbnailUrl: bp.content.thumbnail,
-          }
-        })
-      }
-    }).catch((res) => {
+          blog:  blog,
+          tags: blog.tags || ['none'],
+          date: params.slug.sbustring(0, 10),
+          baseURL: content.app.route.options.base
+        }
+      }).catch((res) => {
       if (!res.response) {
         console.error(res)
         context.error({ statusCode: 404, message: 'Failed to receive content form api' })
